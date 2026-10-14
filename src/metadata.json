@@ -1,0 +1,10 @@
+{
+  "uuid": "codex-usage@o-fgungor.github.io",
+  "name": "Codex Usage Monitor",
+  "description": "Shows your ChatGPT plan and Codex usage limits in the GNOME top bar. Reads your existing Codex CLI credentials. Unofficial community extension based on ClaudeCodeUsage.",
+  "shell-version": ["46", "47", "48", "49", "50"],
+  "url": "https://github.com/o-fgungor/codex-usage",
+  "settings-schema": "org.gnome.shell.extensions.codex-usage",
+  "version": 1,
+  "version-name": "1.0.0"
+}

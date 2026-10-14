@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.codex-usage"
+          path="/org/gnome/shell/extensions/codex-usage/">
+    <key name="show-icon" type="b">
+      <default>true</default>
+      <summary>Show the Codex icon</summary>
+      <description>Display the custom Codex Usage Monitor icon in the panel.</description>
+    </key>
+    <key name="panel-gauge" type="s">
+      <choices>
+        <choice value="ring"/>
+        <choice value="bar"/>
+        <choice value="none"/>
+      </choices>
+      <default>"ring"</default>
+      <summary>Panel usage gauge</summary>
+      <description>Which usage gauge to draw in the panel: a circular ring, a horizontal bar, or none.</description>
+    </key>
+    <key name="show-percentage" type="b">
+      <default>true</default>
+      <summary>Show the usage percentage</summary>
+      <description>Display the usage percentage number in the panel.</description>
+    </key>
+    <key name="show-tier" type="b">
+      <default>true</default>
+      <summary>Show the subscription tier label</summary>
+      <description>Display the subscription tier label (e.g. TEAM, PLUS, PRO) in the panel, after the Codex icon.</description>
+    </key>
+    <key name="show-tier-icon" type="b">
+      <default>false</default>
+      <summary>Show the subscription tier icon</summary>
+      <description>Display the icon of the subscription tier in the panel, after the Codex icon.</description>
+    </key>
+    <key name="show-reset" type="b">
+      <default>false</default>
+      <summary>Show the time until reset</summary>
+      <description>Display, in the panel, the time left before each window shown there (see panel-windows) resets.</description>
+    </key>
+    <key name="show-profile-chip" type="b">
+      <default>true</default>
+      <summary>Show the profile tag</summary>
+      <description>Display a short two-letter tag before each profile's gauge in the panel, to tell profiles apart. Only ever shown when more than one profile is configured.</description>
+    </key>
+    <key name="panel-window" type="s">
+      <choices>
+        <choice value="five-hour"/>
+        <choice value="seven-day"/>
+        <choice value="max"/>
+        <choice value="worst"/>
+      </choices>
+      <default>"five-hour"</default>
+      <summary>Panel usage window</summary>
+      <description>Deprecated: superseded by panel-windows, which can hold several selectors.</description>
+    </key>
+    <key name="panel-windows" type="as">
+      <default>['five-hour']</default>
+      <summary>Panel usage windows</summary>
+      <description>Which usage windows the panel shows, one gauge (ring/bar, percentage) per window, tagged "5h"/"7d"/model name when more than one is shown. Accepted selectors: five-hour, seven-day, scoped, max, worst.</description>
+    </key>
+    <key name="panel-divider" type="s">
+      <default>' '</default>
+      <summary>Window divider</summary>
+      <description>Text placed between the groups of gauges when the panel shows more than one window (see panel-windows), e.g. "·". Exactly "|" draws a thin vertical line; blank leaves a plain gap.</description>
+    </key>
+    <key name="panel-lead-divider" type="s">
+      <default>'|'</default>
+      <summary>Lead divider</summary>
+      <description>Text placed between the leading elements (Codex icon, profile tag, tier icon and label) and the gauges, and between profiles. Exactly "|" draws a thin vertical line; blank shows no divider.</description>
+    </key>
+    <key name="ui-style" type="s">
+      <default>'{}'</default>
+      <summary>UI settings</summary>
+      <description>JSON object of the style values changed from their defaults under "Top-Bar UI" and "Popup UI" in preferences.</description>
+    </key>
+    <key name="panel-position" type="s">
+      <choices>
+        <choice value="left"/>
+        <choice value="center"/>
+        <choice value="right"/>
+      </choices>
+      <default>"right"</default>
+      <summary>Panel box</summary>
+      <description>Which section of the top bar the indicator sits in: left, center, or right.</description>
+    </key>
+    <key name="panel-index" type="i">
+      <range min="0" max="20"/>
+      <default>0</default>
+      <summary>Position within the panel box</summary>
+      <description>Where the indicator sits among the other items in its panel box.</description>
+    </key>
+    <key name="toggle-menu" type="as">
+      <default><![CDATA[[]]]></default>
+      <summary>Shortcut to open the usage popup</summary>
+      <description>Keyboard shortcut that opens and closes the usage dropdown.</description>
+    </key>
+    <key name="poll-seconds" type="i">
+      <range min="30" max="600"/>
+      <default>300</default>
+      <summary>Refresh interval</summary>
+      <description>How often, in seconds, to poll for updated usage.</description>
+    </key>
+    <key name="profiles" type="s">
+      <default>'[]'</default>
+      <summary>Configured Codex profiles</summary>
+      <description>JSON array of {id, label, configDir} objects, one per profile (a directory such as ~/.codex holding credentials).</description>
+    </key>
+    <key name="profiles-initialized" type="b">
+      <default>false</default>
+      <summary>Whether the profile list has been seeded</summary>
+      <description>Set once auto-detection has populated "profiles" for the first time.</description>
+    </key>
+    <key name="profile-tokens" type="s">
+      <default>'{}'</default>
+      <summary>Per-profile OAuth tokens</summary>
+      <description>JSON object mapping a profile id to its in-app sign-in tokens ({accessToken, refreshToken, expiresAt}).</description>
+    </key>
+    <key name="access-token" type="s">
+      <default>''</default>
+      <summary>OAuth access token</summary>
+      <description>Access token from in-app sign-in.</description>
+    </key>
+    <key name="refresh-token" type="s">
+      <default>''</default>
+      <summary>OAuth refresh token</summary>
+      <description>Refresh token from in-app sign-in.</description>
+    </key>
+    <key name="expires-at" type="x">
+      <default>0</default>
+      <summary>Token expiry timestamp</summary>
+      <description>Millisecond timestamp when the access token expires.</description>
+    </key>
+  </schema>
+</schemalist>
